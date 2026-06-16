@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Tesori</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #C8963E;
+      --accent-dark: #a97730;
+      --text: #111111;
+      --muted: #555555;
+      --border: #e8e8e8;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    nav { display: flex; gap: 28px; }
+    nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── Page header ── */
+    .page-header {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .page-header .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── FAQ ── */
+    .faq-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+
+    .faq-category {
+      margin-bottom: 56px;
+    }
+
+    .faq-category-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-q {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .faq-a p { margin-bottom: 10px; }
+    .faq-a p:last-child { margin-bottom: 0; }
+
+    .faq-a ol, .faq-a ul {
+      margin: 10px 0 10px 20px;
+      line-height: 1.9;
+    }
+    .faq-a li { margin-bottom: 4px; }
+
+    .step-num {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 500;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 12px 0 10px 0;
+    }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 0.82rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .callout {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin-top: 14px;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .footer-inner a {
+      color: var(--muted);
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+    .footer-inner a:hover { color: var(--accent); }
+    .footer-sep { margin: 0 8px; opacity: 0.4; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="wordmark">Tesori</a>
+      <nav>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <p class="eyebrow">Help Center</p>
+    <h1>Support</h1>
+    <p class="subtitle">Answers to the most common questions about Tesori.</p>
+  </div>
+
+  <div class="faq-container">
+
+    <!-- ── Subscriptions ── -->
+    <div class="faq-category">
+      <p class="faq-category-title">Subscriptions &amp; Billing</p>
+
+      <div class="faq-item">
+        <p class="faq-q">What's included in the free tier?</p>
+        <div class="faq-a">
+          <p>The free tier gives you full access to Tesori's core features with the following limits:</p>
+          <ul>
+            <li>Up to <strong>5 collections</strong></li>
+            <li>Up to <strong>25 items per collection</strong></li>
+            <li>Up to <strong>50 saved photos</strong></li>
+          </ul>
+          <p>Social features, the discovery tab, barcode scanning, and ratings are fully available on the free tier with no restrictions.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I cancel my Tesori Premium subscription?</p>
+        <div class="faq-a">
+          <p>Tesori Premium is managed entirely through Apple. To cancel:</p>
+          <ol class="steps">
+            <li><span class="step-num">1</span>Open the <strong>Settings</strong> app on your iPhone.</li>
+            <li><span class="step-num">2</span>Tap your name at the top, then tap <span class="pill">Subscriptions</span>.</li>
+            <li><span class="step-num">3</span>Tap <strong>Tesori Premium</strong> in the list.</li>
+            <li><span class="step-num">4</span>Tap <strong>Cancel Subscription</strong> and confirm.</li>
+          </ol>
+          <p>Your Premium access continues until the end of your current billing period. You won't be charged again after that.</p>
+          <div class="callout">
+            Cancellation must be made at least 24 hours before your renewal date to avoid being charged for the next period. Apple handles all billing; Tesori cannot issue refunds directly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I restore my purchases after reinstalling the app?</p>
+        <div class="faq-a">
+          <p>Your subscription is linked to your Apple ID, not your device. After reinstalling Tesori and signing back into your account:</p>
+          <ol class="steps">
+            <li><span class="step-num">1</span>Go to <span class="pill">Settings</span> inside Tesori (tap your avatar in the top right).</li>
+            <li><span class="step-num">2</span>Scroll down and tap <strong>Restore Purchases</strong>.</li>
+            <li><span class="step-num">3</span>Your Premium status should be recognized and restored automatically.</li>
+          </ol>
+          <p>Make sure you're signed into the same Apple ID that was used to purchase the subscription. If the restore doesn't work, try signing out of the App Store and signing back in, then repeat the steps above.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Account ── -->
+    <div class="faq-category">
+      <p class="faq-category-title">Account</p>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I delete my account?</p>
+        <div class="faq-a">
+          <p>You can permanently delete your account from within the app:</p>
+          <ol class="steps">
+            <li><span class="step-num">1</span>Tap your avatar to open your profile.</li>
+            <li><span class="step-num">2</span>Tap the <span class="pill">Settings</span> icon.</li>
+            <li><span class="step-num">3</span>Scroll to the bottom and tap <strong>Delete Account</strong>.</li>
+            <li><span class="step-num">4</span>Confirm when prompted.</li>
+          </ol>
+          <p>Deleting your account permanently removes your profile, archive, photos, ratings, and collections. This action cannot be undone.</p>
+          <div class="callout">
+            If you have an active Premium subscription, cancel it through Apple's Subscriptions settings before deleting your account. Deleting your Tesori account does not automatically cancel an active Apple subscription.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I make my profile private?</p>
+        <div class="faq-a">
+          <p>Go to your profile, tap the Settings icon, and toggle <strong>Private Account</strong> on. When your account is private, only approved followers can see your collections and activity. Your username and display name remain searchable, but your content is hidden from everyone else.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Scanning ── -->
+    <div class="faq-category">
+      <p class="faq-category-title">Scanning &amp; Products</p>
+
+      <div class="faq-item">
+        <p class="faq-q">A barcode scan didn't find a product — what should I do?</p>
+        <div class="faq-a">
+          <p>Not every barcode is in the product database, especially for niche, regional, or very new products. If a scan returns no results, try these steps:</p>
+          <ol class="steps">
+            <li><span class="step-num">1</span><strong>Try scanning again.</strong> Make sure the barcode is well-lit, in focus, and flat. Curved or damaged barcodes can misread.</li>
+            <li><span class="step-num">2</span><strong>Check the barcode type.</strong> Tesori supports standard UPC-A, UPC-E, EAN-13, and EAN-8 barcodes. QR codes are not product barcodes and will not return product results.</li>
+            <li><span class="step-num">3</span><strong>Add it manually.</strong> If the barcode genuinely isn't in the database, you can still save the product by entering the name and details yourself — tap "Add manually" on the scan results screen.</li>
+          </ol>
+          <p>Product database coverage improves over time. A product not found today may be available in a future app update.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Can I edit product details after saving?</p>
+        <div class="faq-a">
+          <p>Yes. Open any saved product in your archive and tap the edit button (pencil icon) in the top right. You can update your rating, hero photo, and any custom notes. The product name and brand pulled from the barcode database are fixed and cannot be edited.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Collections ── -->
+    <div class="faq-category">
+      <p class="faq-category-title">Collections</p>
+
+      <div class="faq-item">
+        <p class="faq-q">What happens to my collections if I hit the free tier limit?</p>
+        <div class="faq-a">
+          <p>If you reach the free tier limit for collections (5) or items per collection (25), you won't be able to create new collections or add new items until you either upgrade to Premium or remove existing collections/items to free up space.</p>
+          <p>Your existing data is never deleted for exceeding limits — limits only prevent adding new content. Upgrading to Premium immediately removes all restrictions.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Can I share a collection publicly?</p>
+        <div class="faq-a">
+          <p>Yes. Collections are shared through your profile. If your profile is set to <strong>Public</strong>, all your collections are visible to anyone who visits your profile. If your profile is <strong>Private</strong>, only approved followers can see your collections.</p>
+          <p>To control which collections appear on your profile, open the collection, tap the options menu, and toggle <strong>Show on profile</strong> on or off.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      &copy; 2026 Matthew Coufal
+      <span class="footer-sep">·</span>
+      <a href="privacy.html">Privacy</a>
+      <span class="footer-sep">·</span>
+      <a href="terms.html">Terms</a>
+      <span class="footer-sep">·</span>
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>

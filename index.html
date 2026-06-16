@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tesori — Your Personal Product Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #C8963E;
+      --accent-dark: #a97730;
+      --text: #111111;
+      --muted: #555555;
+      --border: #e8e8e8;
+      --bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .wordmark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    nav { display: flex; gap: 28px; }
+    nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 96px 24px 80px;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 600;
+      line-height: 1.18;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .hero p {
+      font-size: 1.075rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    .app-store-btn {
+      display: inline-block;
+      background: var(--text);
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 14px 32px;
+      border-radius: 10px;
+      transition: background 0.15s;
+    }
+    .app-store-btn:hover { background: #333; }
+    .app-store-btn span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 2px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Features ── */
+    .features {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    .features h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+    .feature-item {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+    .feature-item h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .feature-item p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── Subscription strip ── */
+    .pricing {
+      background: #fafafa;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px;
+    }
+    .pricing-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pricing h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .pricing .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .plan {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 36px;
+      background: #fff;
+      min-width: 200px;
+      text-align: left;
+    }
+    .plan.featured {
+      border-color: var(--accent);
+    }
+    .plan-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .plan-price {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .plan-price strong { font-weight: 600; }
+    .plan-period {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .plan-features {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.9;
+    }
+    .plan-features li::before {
+      content: "– ";
+      color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .footer-inner a {
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .footer-inner a:hover { color: var(--accent); }
+    .footer-sep { margin: 0 8px; opacity: 0.4; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="wordmark">Tesori</a>
+      <nav>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hero-eyebrow">For iOS</p>
+      <h1>Everything you love,<br/>beautifully archived.</h1>
+      <p>Tesori turns the products you discover into a personal collection you'll actually enjoy revisiting. Scan a barcode, rate it, and build a library that's entirely yours.</p>
+      <a href="#" class="app-store-btn">
+        <span>Download on the</span>
+        App Store
+      </a>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="features">
+      <h2>What Tesori does</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon">◻</div>
+          <h3>Scan &amp; identify</h3>
+          <p>Point your camera at any barcode for instant product details — name, brand, description, and image pulled automatically.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">◈</div>
+          <h3>Rate on your terms</h3>
+          <p>Score products 1–10 on a slider. Five emoji-based tiers give your ratings personality without losing precision.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">▣</div>
+          <h3>Capture the moment</h3>
+          <p>Add a hero photo to any product — snap it in the app or choose from your library for a richer archive.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">◫</div>
+          <h3>Organize into collections</h3>
+          <p>Group products however you think — by category, trip, season, or mood. Your archive, your structure.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">◎</div>
+          <h3>Follow &amp; share</h3>
+          <p>Set your profile public and share collections. Follow people whose taste you trust and discover what they love.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">◑</div>
+          <h3>Discover what's trending</h3>
+          <p>A dedicated discovery tab surfaces the highest-rated and most-saved products across the whole Tesori community.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <div class="pricing-inner">
+        <h2>Free to start. Premium to go further.</h2>
+        <p class="subtitle">Tesori is free with generous limits. Upgrade when you're ready for unlimited everything.</p>
+        <div class="plans">
+          <div class="plan">
+            <div class="plan-label">Free</div>
+            <div class="plan-price"><strong>$0</strong></div>
+            <div class="plan-period">forever</div>
+            <ul class="plan-features">
+              <li>Up to 5 collections</li>
+              <li>25 items per collection</li>
+              <li>50 saved photos</li>
+              <li>Full social features</li>
+              <li>Discovery tab</li>
+            </ul>
+          </div>
+          <div class="plan featured">
+            <div class="plan-label">Tesori Premium</div>
+            <div class="plan-price"><strong>$3.99</strong></div>
+            <div class="plan-period">per month</div>
+            <ul class="plan-features">
+              <li>Unlimited collections</li>
+              <li>Unlimited items</li>
+              <li>Unlimited photos</li>
+              <li>Everything in Free</li>
+            </ul>
+          </div>
+          <div class="plan">
+            <div class="plan-label">Tesori Premium</div>
+            <div class="plan-price"><strong>$24.99</strong></div>
+            <div class="plan-period">per year — save 48%</div>
+            <ul class="plan-features">
+              <li>Unlimited collections</li>
+              <li>Unlimited items</li>
+              <li>Unlimited photos</li>
+              <li>Everything in Free</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      &copy; 2026 Matthew Coufal
+      <span class="footer-sep">·</span>
+      <a href="privacy.html">Privacy</a>
+      <span class="footer-sep">·</span>
+      <a href="terms.html">Terms</a>
+      <span class="footer-sep">·</span>
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>
